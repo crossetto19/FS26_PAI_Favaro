@@ -93,7 +93,7 @@ class Model(object):
         predictions = gp_mean.copy()
 
         # the three lines below increase the predictions for residential area by the shift factor times the standard deviation
-        # this is a very simple "hack" to raise the residential area predictions that if too low, would cost a lost.
+        # this is a very simple "hack" to raise the residential area predictions that if too low, would cost a lot
         shift_factor = 1.5
         residential_mask = test_residential_flags.astype(bool)
         predictions[residential_mask] += shift_factor * gp_std[residential_mask]
